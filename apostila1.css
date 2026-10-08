@@ -1,0 +1,66 @@
+:root {
+    --primary: #0f172a;
+    --secondary: #14b8a6;
+    --text: #334155;
+    --light: #f8fafc;
+    --white: #ffffff;
+    --warn: #b45309;
+    --warn-bg: #fffbeb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--light); color: var(--text); line-height: 1.6; }
+.slide-container { max-width: 900px; margin: 40px auto; padding: 20px; }
+.slide { background: var(--white); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 40px; margin-bottom: 40px; min-height: 500px; display: flex; flex-direction: column; justify-content: space-between; border-left: 8px solid var(--secondary); position: relative; scroll-margin-top: 90px; }
+.header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 15px; margin-bottom: 20px; }
+.institution { font-weight: bold; color: var(--primary); font-size: 0.9rem; }
+.page-num { background: var(--primary); color: var(--white); padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+h1 { color: var(--primary); font-size: 2.2rem; margin-bottom: 15px; line-height: 1.2; }
+h2 { color: var(--secondary); font-size: 1.5rem; margin-bottom: 20px; }
+h3 { color: var(--primary); font-size: 1.1rem; margin-top: 15px; margin-bottom: 5px; }
+p { margin-bottom: 15px; text-align: justify; }
+ul { margin-left: 20px; margin-bottom: 15px; }
+li { margin-bottom: 8px; }
+.highlight-box { background: #f0fdfa; border-left: 4px solid var(--secondary); padding: 15px; border-radius: 0 8px 8px 0; margin: 15px 0; font-style: italic; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.cover { justify-content: center; align-items: center; text-align: center; border-left: none; background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%); color: var(--white); }
+.cover h1 { color: var(--white); font-size: 2.8rem; margin-bottom: 20px; }
+.cover h2 { color: var(--secondary); font-size: 1.6rem; }
+.cover .footer-info { margin-top: 50px; font-size: 0.9rem; opacity: 0.8; }
+.badge { background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.85rem; color: var(--primary); }
+
+/* ===== NOVO: aviso de atualização pontual de norma ===== */
+.update-box { background: var(--warn-bg); border-left: 4px solid var(--warn); padding: 15px; border-radius: 0 8px 8px 0; margin: 15px 0; }
+.update-box strong { color: var(--warn); }
+
+/* ===== NOVO: sumário fixo de navegação (aplica o próprio conceito de Sumário-ABNT ao site) ===== */
+.toc-toggle { position: fixed; bottom: 24px; right: 24px; z-index: 50; background: var(--primary); color: var(--white); border: none; width: 56px; height: 56px; border-radius: 50%; font-size: 1.4rem; cursor: pointer; box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
+.toc-toggle:hover { background: var(--secondary); }
+.toc-panel { position: fixed; bottom: 92px; right: 24px; width: 280px; max-height: 65vh; overflow-y: auto; background: var(--white); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); padding: 18px; z-index: 50; display: none; }
+.toc-panel.open { display: block; }
+.toc-panel h4 { color: var(--primary); font-size: 0.95rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+.toc-panel ol { list-style: none; margin: 0; padding: 0; }
+.toc-panel li { margin-bottom: 2px; }
+.toc-panel a { display: block; text-decoration: none; color: var(--text); font-size: 0.88rem; padding: 6px 8px; border-radius: 6px; }
+.toc-panel a:hover { background: var(--light); color: var(--secondary); }
+
+/* ===== NOVO: mockup visual de página A4 com margens ===== */
+.page-mockup { display: flex; justify-content: center; margin: 20px 0; }
+.a4-box { position: relative; width: 220px; height: 311px; background: #fff; border: 2px solid var(--primary); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.a4-margin { position: absolute; top: 30px; left: 30px; right: 20px; bottom: 20px; border: 1.5px dashed var(--secondary); }
+.a4-margin::after { content: "Área de texto"; position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); font-size: 0.65rem; color: var(--secondary); text-align: center; white-space: nowrap; }
+.a4-label { position: absolute; font-size: 0.65rem; color: var(--primary); font-weight: bold; }
+.a4-label.top { top: 8px; left: 50%; transform: translateX(-50%); }
+.a4-label.left { left: 8px; top: 50%; transform: translateY(-50%) rotate(-90deg); }
+.a4-label.bottom { bottom: 4px; left: 50%; transform: translateX(-50%); }
+.a4-label.right { right: -2px; top: 50%; transform: translateY(-50%) rotate(90deg); }
+
+/* ===== NOVO: passos práticos no Word ===== */
+.word-steps { list-style: none; margin: 15px 0; padding: 0; counter-reset: step; }
+.word-steps li { counter-increment: step; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 16px 14px 52px; margin-bottom: 10px; position: relative; }
+.word-steps li::before { content: counter(step); position: absolute; left: 14px; top: 14px; width: 24px; height: 24px; background: var(--secondary); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; }
+.word-path { font-family: monospace; background: #e2e8f0; padding: 1px 6px; border-radius: 4px; font-size: 0.85rem; color: var(--primary); }
+
+@media (max-width: 600px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    .toc-panel { width: calc(100vw - 48px); }
+}
